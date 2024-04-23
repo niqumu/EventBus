@@ -85,11 +85,6 @@ public final class SimpleEventBus implements EventBus {
 		// Iterate over all methods in the subscriber class
 		for (Method method : subscriberClass.getMethods()) {
 
-			// Ignore methods that we are disallowed from invoking
-			if (!method.isAccessible()) {
-				continue;
-			}
-
 			// Ignore methods that are not annotated with the EventHandler annotation
 			if (!method.isAnnotationPresent(EventHandler.class)) {
 				continue;
